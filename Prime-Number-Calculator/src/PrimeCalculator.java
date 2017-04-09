@@ -1,34 +1,50 @@
 
 public class PrimeCalculator {
-
-	int n;
-	int i;
-	int counter;
-
+long startTime = System.currentTimeMillis();
+	long n;
+	long i;
+	long counter = 0;
+	long nonprimecount;
+	long primecount;
+	
 	public void calculator() {
 
-		for (int i = 0; i <= 100; i++) {
-System.out.println("The number of prime numbers is: " + n);
-			for (int j = 2; j <= 100; j++) {
+		for (long i = 1_000_001; i <= 3_000_000; i+=2, counter = 0) {
+
+			for (long j = 2; j <= 1000; j++) {
 
 				if (i % j == 0) {
 
 					counter++;
-					n++;
-
+					
 				}
 
 				else {
 
 				}
 				
-				System.out.println(i + " = " + j );
+				//System.out.prlongln(i + " = " + j );
+
+			}
+			
+			if (counter < 2) {
+				
+				
+				primecount++;
+				System.out.println(i + " IS A PRIME NUMBER!");
+				
+			}
+
+			else {
+				nonprimecount++;
 
 			}
 
 		}
-		
-
+System.out.println("The Are " + nonprimecount + " Non-Prime numbers and "  + primecount + " Prime numbers between 2 and " + ((nonprimecount + primecount) * 2));		
+long endTime   = System.currentTimeMillis();
+long totalTime = endTime - startTime;
+System.out.println("This calculation took: " + (totalTime/1000) + " Seconds");
 	}
 
 }
